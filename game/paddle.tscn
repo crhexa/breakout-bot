@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmf2a2hmp6a3y"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://buknji48sg50o" path="res://game/bouncy.tres" id="1_ey3mf"]
+[ext_resource type="Script" path="res://game/paddle.gd" id="1_snou4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqjes"]
+size = Vector2(111.5, 20)
+
+[node name="Paddle" type="AnimatableBody2D"]
+physics_material_override = ExtResource("1_ey3mf")
+constant_linear_velocity = Vector2(0, 20)
+sync_to_physics = false
+script = ExtResource("1_snou4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56.25, 10)
+shape = SubResource("RectangleShape2D_qqjes")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 112.0
+offset_bottom = 20.0

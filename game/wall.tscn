@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b11mvk0fdotel"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://buknji48sg50o" path="res://game/bouncy.tres" id="1_tytch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adufs"]
+size = Vector2(40, 40)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+physics_material_override = ExtResource("1_tytch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_adufs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
