@@ -3,30 +3,44 @@
 [ext_resource type="PackedScene" uid="uid://dmf2a2hmp6a3y" path="res://game/paddle.tscn" id="1_oi82f"]
 [ext_resource type="Script" path="res://game/world.gd" id="1_u78ss"]
 [ext_resource type="PackedScene" uid="uid://b11mvk0fdotel" path="res://game/wall.tscn" id="2_nq0vk"]
-[ext_resource type="PackedScene" uid="uid://djmq0nvvmektu" path="res://game/ball.tscn" id="4_lr6mt"]
+[ext_resource type="PackedScene" uid="uid://bkreeam1j242" path="res://game/kill_area.tscn" id="4_dcfwk"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_u78ss")
 
-[node name="Paddle" parent="." instance=ExtResource("1_oi82f")]
+[node name="Environment" type="Node" parent="."]
+
+[node name="Paddle" parent="Environment" instance=ExtResource("1_oi82f")]
 position = Vector2(520, 608)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Walls" type="Node2D" parent="Environment"]
+metadata/_edit_lock_ = true
 
-[node name="North" parent="Walls" instance=ExtResource("2_nq0vk")]
-scale = Vector2(30, 0.5)
+[node name="North" parent="Environment/Walls" instance=ExtResource("2_nq0vk")]
+position = Vector2(-20, 20)
+rotation = -1.57079
+scale = Vector2(1, 29.8)
 constant_linear_velocity = Vector2(0, 20)
 
-[node name="West" parent="Walls" instance=ExtResource("2_nq0vk")]
-scale = Vector2(0.5, 17)
+[node name="West" parent="Environment/Walls" instance=ExtResource("2_nq0vk")]
+position = Vector2(20, 20)
+rotation = 1.57079
+scale = Vector2(17, 1)
 
-[node name="East" parent="Walls" instance=ExtResource("2_nq0vk")]
-position = Vector2(1132, 0)
-scale = Vector2(0.5, 17)
+[node name="East" parent="Environment/Walls" instance=ExtResource("2_nq0vk")]
+position = Vector2(1132, 20)
+scale = Vector2(1, 17)
 
-[node name="South" parent="Walls" instance=ExtResource("2_nq0vk")]
-position = Vector2(0, 628)
-scale = Vector2(30, 0.5)
+[node name="South" parent="Environment/Walls" instance=ExtResource("4_dcfwk")]
+position = Vector2(24, 660)
+scale = Vector2(55.2, 2)
 
-[node name="Ball" parent="." instance=ExtResource("4_lr6mt")]
-position = Vector2(566, 438)
+[node name="Interface" type="Node" parent="."]
+
+[node name="Points" type="Label" parent="Interface"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 252.0
+offset_bottom = 84.0
+text = "Points: 0
+Deaths: 0"

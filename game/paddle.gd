@@ -15,7 +15,7 @@ func _ready():
 	v = Vector2(x_velocity, 0)
 
 
-func _process(delta):
+func _process(_delta):
 	if controllable:
 		input_left = Input.is_action_pressed("move_left")
 		input_right = Input.is_action_pressed("move_right")

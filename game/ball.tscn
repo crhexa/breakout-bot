@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlwh7"]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D"]
 physics_material_override = ExtResource("1_vjmx5")
 gravity_scale = 0.0
 max_contacts_reported = 1
