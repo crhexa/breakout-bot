@@ -8,6 +8,8 @@ extends Node
 
 @export var ball_start = Vector2(566, 580)
 
+var paddle_half : float = 112.0
+
 var ball : RigidBody2D
 var ball_pscn : PackedScene
 
@@ -57,4 +59,10 @@ func score():
 	
 func update_interface():
 	label.set_text("Points: %d \nDeaths: %d" % [points, deaths])
+	
+
+func extract_features() -> Array[float]:
+	return [ball.position.x, ball.position.y, ball.linear_velocity.x, ball.linear_velocity.y, paddle.position.x+paddle_half] as Array[float]
+	
+	
 	

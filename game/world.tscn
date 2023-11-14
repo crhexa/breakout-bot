@@ -51,10 +51,9 @@ offset_bottom = 420.0
 [node name="Interface" type="Node" parent="."]
 
 [node name="Points" type="Label" parent="Interface"]
-visible = false
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 252.0
-offset_bottom = 84.0
+offset_left = 44.0
+offset_top = 544.0
+offset_right = 264.0
+offset_bottom = 596.0
 text = "Points: 0
 Deaths: 0"
