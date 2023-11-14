@@ -14,6 +14,10 @@ script = ExtResource("1_u78ss")
 [node name="Paddle" parent="Environment" instance=ExtResource("1_oi82f")]
 position = Vector2(520, 608)
 
+[node name="PaddleMarker" type="Marker2D" parent="Environment"]
+position = Vector2(520, 608)
+metadata/_edit_lock_ = true
+
 [node name="Walls" type="Node2D" parent="Environment"]
 metadata/_edit_lock_ = true
 
