@@ -34,7 +34,7 @@ func _physics_process(delta):
 		move_and_collide(delta * v)
 		
 	position.y = y
-		
+
 
 # Called by the AI
 func move_left():

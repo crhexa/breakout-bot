@@ -2,6 +2,8 @@ extends Node
 
 @onready var kill_area = $Environment/Walls/South
 @onready var environment = $Environment
+@onready var paddle = $Environment/Paddle
+@onready var paddle_start = $Environment/PaddleMarker
 @onready var label = $Interface/Points
 
 @export var ball_start = Vector2(566, 580)
@@ -45,6 +47,7 @@ func initialize():
 	ball = ball_pscn.instantiate()
 	environment.call_deferred("add_child", ball)
 	ball.initialize(ball_start, kill_area.get_rid())
+	paddle.call_deferred("set_position", paddle_start.position)
 
 
 func score():
