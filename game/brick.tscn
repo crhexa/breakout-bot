@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhbg25tnf6bb4"]
+
+[ext_resource type="Script" path="res://brick.gd" id="1_yc725"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfwyk"]
+size = Vector2(16, 16)
+
+[node name="Brick" type="StaticBody2D"]
+script = ExtResource("1_yc725")
+colors = PackedColorArray(0.886275, 0.321569, 0.321569, 1, 0.909804, 0.388235, 0.266667, 1, 0.917647, 0.466667, 0.207843, 1, 0.905882, 0.541176, 0.145098, 1, 0.878431, 0.619608, 0.0862745, 1, 0.831373, 0.698039, 0.0588235, 1, 0.768627, 0.772549, 0.109804, 1, 0.690196, 0.847059, 0.207843, 1, 0.584314, 0.913725, 0.32549, 1, 0.431373, 0.980392, 0.458824, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_dfwyk")
+
+[node name="Outer" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Outer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Inner" type="ColorRect" parent="Outer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)

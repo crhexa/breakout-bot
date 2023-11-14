@@ -7,12 +7,14 @@ extends AnimatableBody2D
 @export var controllable : bool = true
 
 var v : Vector2
+var y : float
 var input_left : bool = false
 var input_right : bool = false
 
 
 func _ready():
 	v = Vector2(x_velocity, 0)
+	y = position.y
 
 
 func _process(_delta):
@@ -30,6 +32,8 @@ func _physics_process(delta):
 		
 	elif input_right:
 		move_and_collide(delta * v)
+		
+	position.y = y
 		
 
 # Called by the AI

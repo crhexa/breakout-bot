@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuf04mbq3k0j1"]
+[gd_scene load_steps=6 format=3 uid="uid://cuf04mbq3k0j1"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2a2hmp6a3y" path="res://game/paddle.tscn" id="1_oi82f"]
 [ext_resource type="Script" path="res://game/world.gd" id="1_u78ss"]
 [ext_resource type="PackedScene" uid="uid://b11mvk0fdotel" path="res://game/wall.tscn" id="2_nq0vk"]
 [ext_resource type="PackedScene" uid="uid://bkreeam1j242" path="res://game/kill_area.tscn" id="4_dcfwk"]
+[ext_resource type="PackedScene" uid="uid://ckx4j1cp5gg0n" path="res://game/brick_area.tscn" id="5_yiyf7"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_u78ss")
@@ -23,21 +24,30 @@ scale = Vector2(1, 29.8)
 constant_linear_velocity = Vector2(0, 20)
 
 [node name="West" parent="Environment/Walls" instance=ExtResource("2_nq0vk")]
-position = Vector2(20, 20)
+position = Vector2(32, 20)
 rotation = 1.57079
-scale = Vector2(17, 1)
+scale = Vector2(17, 0.8)
 
 [node name="East" parent="Environment/Walls" instance=ExtResource("2_nq0vk")]
-position = Vector2(1132, 20)
-scale = Vector2(1, 17)
+position = Vector2(1120, 20)
+scale = Vector2(0.8, 17)
 
 [node name="South" parent="Environment/Walls" instance=ExtResource("4_dcfwk")]
-position = Vector2(24, 660)
-scale = Vector2(55.2, 2)
+position = Vector2(32, 660)
+scale = Vector2(54.4, 2)
+collision_layer = 4
+collision_mask = 4
+
+[node name="BrickArea" parent="Environment" instance=ExtResource("5_yiyf7")]
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 1120.0
+offset_bottom = 420.0
 
 [node name="Interface" type="Node" parent="."]
 
 [node name="Points" type="Label" parent="Interface"]
+visible = false
 offset_left = 32.0
 offset_top = 32.0
 offset_right = 252.0

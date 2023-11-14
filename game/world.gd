@@ -4,7 +4,7 @@ extends Node
 @onready var environment = $Environment
 @onready var label = $Interface/Points
 
-@export var ball_start = Vector2(566, 438)
+@export var ball_start = Vector2(566, 580)
 
 var ball : RigidBody2D
 var ball_pscn : PackedScene
@@ -14,7 +14,12 @@ var deaths : int = 0
 
 
 func _ready():
+	#Engine.set_time_scale(4)
+	#Engine.set_max_physics_steps_per_frame(16)
+	#Engine.set_physics_ticks_per_second(240)
+	
 	Signals.game_restart.connect(_on_game_restart)
+	Signals.brick_hit.connect(_on_brick_hit)
 	ball_pscn = preload("res://game/ball.tscn")
 	initialize()
 
@@ -23,6 +28,11 @@ func _on_game_restart():
 	deaths += 1
 	update_interface()
 	initialize()
+
+
+func _on_brick_hit():
+	points += 1
+	update_interface()
 
 
 func initialize():

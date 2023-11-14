@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckx4j1cp5gg0n"]
+
+[ext_resource type="Script" path="res://game/brick_area.gd" id="1_xaciy"]
+
+[node name="BrickArea" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1088.0
+offset_bottom = 400.0
+script = ExtResource("1_xaciy")

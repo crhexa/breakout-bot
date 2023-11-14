@@ -14,8 +14,12 @@ func initialize(start_position : Vector2, killer_rid : RID):
 	linear_velocity = Vector2(speed, 0).rotated(ball_direction)
 
 
-func _on_body_shape_exited(body_rid, _body, _body_shape_index, _local_shape_index):
+func _on_body_shape_exited(body_rid, body, _body_shape_index, _local_shape_index):
 	if body_rid != killer:
 		var direction = linear_velocity.angle()
 		linear_velocity = Vector2(speed, 0).rotated(direction)
+
+		if body.has_method("lose_health"):
+			body.lose_health()
+	
 

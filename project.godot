@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Signals="*res://game/global/signals.gd"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [input]
 
 move_left={
@@ -36,4 +40,5 @@ move_right={
 
 [physics]
 
+2d/run_on_separate_thread=true
 2d/default_linear_damp=0.0
