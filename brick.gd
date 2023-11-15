@@ -32,6 +32,9 @@ func lose_health():
 func disappear():
 	collision.set_deferred("disabled", true)
 	outer.set_visible(false)
+	for child in get_children():
+		child.queue_free()
+	queue_free()
 
 
 func set_width():

@@ -5,6 +5,7 @@ extends Node
 @onready var paddle = $Environment/Paddle
 @onready var paddle_start = $Environment/PaddleMarker
 @onready var label = $Interface/Points
+@onready var actor = $Actor
 
 @export var ball_start = Vector2(566, 580)
 
@@ -29,14 +30,14 @@ func _ready():
 
 
 func _on_game_restart():
+	actor.write(extract_features())
 	deaths += 1
 	update_interface()
 	initialize()
 
 
 func _on_brick_hit():
-	points += 1
-	update_interface()
+	score()
 
 
 func initialize():
@@ -61,8 +62,6 @@ func update_interface():
 	label.set_text("Points: %d \nDeaths: %d" % [points, deaths])
 	
 
-func extract_features() -> Array[float]:
-	return [ball.position.x, ball.position.y, ball.linear_velocity.x, ball.linear_velocity.y, paddle.position.x+paddle_half] as Array[float]
-	
-	
+func extract_features() -> PackedFloat32Array:
+	return PackedFloat32Array([ball.position.x, ball.position.y, ball.linear_velocity.x, ball.linear_velocity.y, paddle.position.x+paddle_half])
 	

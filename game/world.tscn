@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuf04mbq3k0j1"]
+[gd_scene load_steps=7 format=3 uid="uid://cuf04mbq3k0j1"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2a2hmp6a3y" path="res://game/paddle.tscn" id="1_oi82f"]
 [ext_resource type="Script" path="res://game/world.gd" id="1_u78ss"]
 [ext_resource type="PackedScene" uid="uid://b11mvk0fdotel" path="res://game/wall.tscn" id="2_nq0vk"]
 [ext_resource type="PackedScene" uid="uid://bkreeam1j242" path="res://game/kill_area.tscn" id="4_dcfwk"]
 [ext_resource type="PackedScene" uid="uid://ckx4j1cp5gg0n" path="res://game/brick_area.tscn" id="5_yiyf7"]
+[ext_resource type="Script" path="res://game/actor.gd" id="6_n0m22"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_u78ss")
 
 [node name="Environment" type="Node" parent="."]
+process_mode = 1
 
 [node name="Paddle" parent="Environment" instance=ExtResource("1_oi82f")]
 position = Vector2(520, 608)
@@ -49,6 +51,7 @@ offset_right = 1120.0
 offset_bottom = 420.0
 
 [node name="Interface" type="Node" parent="."]
+process_mode = 1
 
 [node name="Points" type="Label" parent="Interface"]
 offset_left = 44.0
@@ -57,3 +60,14 @@ offset_right = 264.0
 offset_bottom = 596.0
 text = "Points: 0
 Deaths: 0"
+
+[node name="Actor" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_n0m22")
+filepath = "res://python/test.py"
+
+[node name="ProcessNode" type="ProcessNode" parent="Actor"]
+
+[connection signal="finished" from="Actor/ProcessNode" to="Actor" method="_on_process_node_finished"]
+[connection signal="stderr" from="Actor/ProcessNode" to="Actor" method="_on_process_node_stderr"]
+[connection signal="stdout" from="Actor/ProcessNode" to="Actor" method="_on_process_node_stdout"]
