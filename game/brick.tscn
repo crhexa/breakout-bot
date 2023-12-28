@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhbg25tnf6bb4"]
 
-[ext_resource type="Script" path="res://brick.gd" id="1_yc725"]
+[ext_resource type="Script" path="res://game/brick.gd" id="1_gkygm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfwyk"]
 size = Vector2(16, 16)
 
 [node name="Brick" type="StaticBody2D"]
-script = ExtResource("1_yc725")
+script = ExtResource("1_gkygm")
 colors = PackedColorArray(0.886275, 0.321569, 0.321569, 1, 0.909804, 0.388235, 0.266667, 1, 0.917647, 0.466667, 0.207843, 1, 0.905882, 0.541176, 0.145098, 1, 0.878431, 0.619608, 0.0862745, 1, 0.831373, 0.698039, 0.0588235, 1, 0.768627, 0.772549, 0.109804, 1, 0.690196, 0.847059, 0.207843, 1, 0.584314, 0.913725, 0.32549, 1, 0.431373, 0.980392, 0.458824, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

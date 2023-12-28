@@ -14,9 +14,10 @@ var tile_number : int = 0
 
 
 func _ready():
-	brick_pscn = preload("res://game/brick.tscn")
-	set_grid()
-	tile_default(difficulty)
+	#brick_pscn = preload("res://game/brick.tscn")
+	#set_grid()
+	#tile_default(difficulty)
+	return
 	
 
 func set_grid():
@@ -40,7 +41,7 @@ func tile_default(strength : int) -> void:
 	var brick_offset : int = 0
 	
 	for row in range(grid_tiles.y):
-		var health = min(max(1, strength-row+5), 10)
+		var health = min(max(1, strength-row), 10)
 		
 		if brick_offset > 0:
 			add_brick(health, brick_offset).set_position(Vector2(0, row*tile_size))

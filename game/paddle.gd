@@ -4,7 +4,7 @@ extends AnimatableBody2D
 @onready var rectangle = $ColorRect
 
 @export var x_velocity : float = 600.0
-@export var controllable : bool = true
+@export var controllable : bool = false
 
 var v : Vector2
 var y : float
@@ -37,10 +37,14 @@ func _physics_process(delta):
 
 
 # Called by the AI
-func move_left():
+func move_left() -> void:
 	input_left = true
 	input_right = false
 
-func move_right():
+func move_right() -> void:
 	input_right = true
+	input_left = false
+
+func move_stop() -> void:
+	input_right = false
 	input_left = false
